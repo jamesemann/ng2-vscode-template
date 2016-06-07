@@ -1,6 +1,2 @@
 language: node_js
-before_script:
-  - npm rebuild node-sass
-  - npm install -g gulp
-script: gulp
 install: true
