@@ -1,0 +1,19 @@
+<style type="text/css">
+@media screen and (max-width: 699px)  {
+    .view {border: 1px solid red; width: 300px; height: 300px} 
+}
+
+
+@media screen and (min-width: 700px) and (max-width: 1099px)  {
+    .view {border: 1px solid green; width: 300px; height: 300px} 
+}
+
+@media screen and (min-width: 1100px){
+    .view {border: 1px solid blue; width: 300px; height: 300px}
+}
+</style>
+
+<div class="view" (window:resize)="onResize($event)">
+    {{width}} x {{height}} 
+    <br> device: {{mode}} (set at {{lastModeChange}})
+</div>
