@@ -1,9 +1,14 @@
 var generators = require('yeoman-generator');
+var _ = require('lodash');
+
 module.exports = generators.Base.extend({
     folder: '',
     
     constructor: function () {
         generators.Base.apply(this, arguments);
+        this.argument('appname', { type: String, required: true });
+        // And you can then access it later on this way; e.g. CamelCased
+        this.appname = _.camelCase(this.appname);
 
         var welcome="\n\n"+
         "                  ____                                      _      "+  
@@ -17,28 +22,17 @@ module.exports = generators.Base.extend({
     },
 
     prompting: function () {
-        var done = this.async();
-        var self = this;
 
-        self.prompt([{
-            type: 'input',
-            name: 'name',
-            message: 'Give your application a name',
-            default: 'target'
-        }]).then(function (answers) {
-            self.folder = answers.name;
-            done();
-        });
     },
 
     writing: function () {
         var self = this;
-        self.fs.copy(self.templatePath('**/*.*'), self.destinationPath(self.folder));
+        self.fs.copy(self.templatePath('**/*.*'), self.destinationPath(self.appname));
     },
 
     install: function () {
         var self = this;
-        var npmdir = self.destinationPath(self.folder);
+        var npmdir = self.destinationPath(self.appname);
         process.chdir(npmdir);
         self.installDependencies({
             bower: false,

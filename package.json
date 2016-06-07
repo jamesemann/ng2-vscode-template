@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-vscode-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Yeoman Generator for Visual Studio Code setting up a basic Angular 2.0 project structure with Gulp task runner, Jasmine unit tests and third party library (D3) integration.",
   "readme": "Yeoman Generator for Visual Studio Code setting up a basic Angular 2.0 project structure with Gulp task runner, Jasmine unit tests and third party library (D3) integration.",
   "keywords": [
@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "yeoman-generator": "^0.23.3"
+    "yeoman-generator": "^0.23.3",
+    "lodash": "^4.13.1"
   },
   "repository": {
     "type": "git",
